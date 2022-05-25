@@ -10,6 +10,7 @@ var green = new Audio("sounds/green.mp3");
 var yellow = new Audio("sounds/yellow.mp3");
 var fail = new Audio("sounds/wrong.mp3");
 var level = 0;
+var start = false;
 
 function nextSequence(){
     userPattern = [];
@@ -37,7 +38,12 @@ function playSound(name) {
   }
 
 
-$(document).keypress(nextSequence);
+$(document).keypress(function(){
+    if(!start) {
+        nextSequence();
+    start = true;
+    }
+});
 
 
 
